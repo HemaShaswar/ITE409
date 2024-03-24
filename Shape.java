@@ -1,90 +1,63 @@
 import java.security.SecureRandom;
-import java.util.Scanner;
 
-public class Shape
+abstract class Shape
 {
-    private int shapeId;
+    private int shapeId; //unique
     private String color;
+    private point centerPoint;
+    private String type;
 
-    public Shape(String color)
-    {
-        setId();
+    public Shape(String color, String type){
+        initializeId();
         setColor(color);
+        setType(type);
     }
 
-    private void setId()
-    {
-        shapeId = generateRandomId();
+    public Shape(String color, point center, String type){
+        initializeId();
+        setColor(color);
+        setCenterPoint(center);
+        setType(type);
     }
 
-    public int getId()
-    {
-        return shapeId;
+    private void setCenterPoint(point centerPoint){
+        this.centerPoint = centerPoint;
     }
 
-    private int generateRandomId()
-    {
-        SecureRandom random = new SecureRandom();
-
-        int randomId = 1000 +random.nextInt(10000);
-
-        return randomId;
+    public point getCenterPoint(){
+        return this.centerPoint;
     }
 
-    public void setColor(String color)
-    {
+    public int getId(){
+        return this.shapeId;
+    }
+
+    public void setColor(String color){
         this.color = color;
     }
 
-    public String getColor()
-    {
+    public String getColor(){
         return color;
     }
 
-    @Override
-    public String toString()
-    {
-        
-        return "Shape ID: " + getId() + "\nShape color: " + getColor();
+    public void setType(String type){
+        this.type = type;
     }
 
-    public void setPosition()
-    {
-        return;
+    public String getType(){
+        return this.type;
     }
 
-    public void createShape()
-    {
-        Scanner input = new Scanner(System.in);
-        System.err.println("Please enter the color of the shape: ");
-        color = input.nextLine();
+    private void initializeId(){
+        // make it unique//
+        SecureRandom random = new SecureRandom();
+        shapeId = 1000 +random.nextInt(10000);
+    }
 
-        System.out.println("Please enter type(Sphere, Cube, Circle, Square, Triangle): ");
-        String type = input.nextLine();
+    public abstract void setArea();
 
-        switch(type)
-        {
-            case "Sphere":
-            Shape sphere = new Sphere(color);
-                break;
-            
-            case "Cube":
-            Shape cube = new Cube(color);
-                break;
-
-            case "Circle":
-            Shape circle = new Circle(color);
-                break;
-
-            case "Square":
-            Shape square = new Square(color);
-                break;
-            
-            case "Triangle":
-            Shape triangle = new Triangle(color);
-                break;
-        }
-
+    public void print(){
+      // check if share has volume aka sphere and cube  
     }
 }
 

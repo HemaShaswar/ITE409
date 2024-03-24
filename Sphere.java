@@ -1,25 +1,20 @@
-public class Sphere extends Shape
-{
-    public Sphere(String color) 
+public class Sphere extends Circle{
+    private double volume;
+    private double height;
+
+    public Sphere(String color, point center,int radius, String type, double height) 
     {
-        super(color);
-        System.out.println("Please provide the coordinates of the shape");
-        
+        super(color,center,radius,type);
+        setHeight(height);
     }
 
-    @Override
-    public String toString()
-    {
-        return super.toString() + "\nShape Position: " + getPosition();
+    public void setHeight(double height){
+        this.height = height;
     }
 
-    public void setPosition(double x, double y, double z)
-    {
-
+    public void calculateVolume(){
+        this.setArea();
+        this.volume = this.getArea() * this.height;
     }
-    public String getPosition()
-    {
-        return "a";
-    }
-
 }
+ 
