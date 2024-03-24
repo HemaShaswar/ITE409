@@ -1,10 +1,13 @@
 public class Circle extends Shape{
     private double radius;
-    private double area;
 
-    public Circle(String color,point centerPoint,double radius,String type){
-        super(color,centerPoint,type);
-        setRadius(radius);        
+    public Circle(String color,Point[] corners,double radius){
+        super(color,corners,"Circle");
+        setRadius(radius);   
+    }
+    public Circle(String color,Point[] corners,double radius,String type){
+        super(color,corners,type);
+        setRadius(radius);   
     }
 
     public void setRadius(double radius){
@@ -15,13 +18,8 @@ public class Circle extends Shape{
         return this.radius;
     }
 
-    public void setArea(){
-        this.area = Math.PI * radius * radius;
-
-    }
-
     public double getArea() {
-        return area;
+        return Math.PI * this.radius * this.radius;
     }
 
 }

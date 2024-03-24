@@ -1,20 +1,17 @@
 public class Sphere extends Circle{
-    private double volume;
-    private double height;
-
-    public Sphere(String color, point[] corners,int radius, String type, double height) 
+    
+    public Sphere(String color, Point[] corners,double radius) 
     {
-        super(color,corners,radius,type);
-        setHeight(height);
+        super(color,corners,radius,"Sphere");
     }
 
-    public void setHeight(double height){
-        this.height = height;
+    @Override
+    public double getArea() {
+        return 4 * super.getArea();
     }
 
-    public void calculateVolume(){
-        this.setArea();
-        this.volume = this.getArea() * this.height;
+    public double getVolume(){
+        return (4.0 / 3) * Math.PI * Math.pow(this.getRadius(), 3); // Volume of a sphere
     }
 }
  
