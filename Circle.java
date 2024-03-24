@@ -1,25 +1,41 @@
 public class Circle extends Shape{
-    private double radius;
+    private Point centerPoint;
+    private Point circumPoint;
 
-    public Circle(String color,Point[] corners,double radius){
-        super(color,corners,"Circle");
-        setRadius(radius);   
+    public Circle(String color,Point centerPoint,Point circumPoint){
+        super(color,"Circle");
+        setCenterPoint(centerPoint);
+        setCircumPoint(circumPoint);
     }
-    public Circle(String color,Point[] corners,double radius,String type){
-        super(color,corners,type);
-        setRadius(radius);   
+    public Circle(String color,Point centerPoint, Point circumPoint,String type){
+        super(color,type);
+        setCenterPoint(centerPoint);
+        setCircumPoint(circumPoint);
     }
 
-    public void setRadius(double radius){
-        this.radius = radius;
+    private void setCenterPoint(Point centerPoint) {
+        this.centerPoint = centerPoint;
+    }
+
+    public Point getCenterPoint() {
+        return centerPoint;
+    }
+
+    private Point setCircumPoint(Point circlePoint){
+        return this.circumPoint;
+    }
+
+    public Point getCircumPoint() {
+        return circumPoint;
     }
 
     public double getRadius(){
-        return this.radius;
+        return Math.sqrt(Math.pow(circumPoint.x - centerPoint.x, 2) + Math.pow(circumPoint.y - centerPoint.y, 2));
+
     }
 
     public double getArea() {
-        return Math.PI * this.radius * this.radius;
+        return Math.PI * Math.pow(this.getRadius(), 2);
     }
 
 }

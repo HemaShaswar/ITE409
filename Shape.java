@@ -4,30 +4,14 @@ import java.util.Set;
 
 abstract class Shape {
     private static final Set<Integer> usedIDs = new HashSet<>();
-    private int shapeId; // unique
+    private int shapeId; 
     private String color;
-    private Point[] corners; // Assuming Point class exists
     private String type;
 
     public Shape(String color, String type) {
         setId();
         setColor(color);
         setType(type);
-    }
-
-    public Shape(String color, Point[] corners, String type) {
-        setId();
-        setColor(color);
-        setCorners(corners);
-        setType(type);
-    }
-
-    private void setCorners(Point[] corners) {
-        this.corners = corners;
-    }
-
-    public Point[] getCorners() {
-        return this.corners;
     }
 
     public int getId() {
