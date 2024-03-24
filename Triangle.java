@@ -1,6 +1,6 @@
 public class Triangle extends Shape{
 
-    public Triangle(String color, point center, String type) 
+    public Triangle(String color, Point center, String type) 
     {
         super(color);
         System.out.println("Please provide the coordinates of the shape");
