@@ -1,6 +1,6 @@
 public class Sphere extends Circle{
     
-    public Sphere(String color, Point centerPoint, Point circumPoint,double radius){
+    public Sphere(String color, Point centerPoint, Point circumPoint){
         super(color,centerPoint, circumPoint,"Sphere");
     }
 
