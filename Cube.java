@@ -1,25 +1,39 @@
 public class Cube extends Shape {
 
-    public Cube(String color) 
+    private double volume;
+    private Point cornerOne, cornerTwo;
+    public Cube(Point cornerOne, Point cornerTwo, String color, String type) 
     {
-        super(color);
-        System.out.println("Please provide the coordinates of the shape");
-        
+        super(color,type);
+        this.cornerOne = cornerOne;
+        this.cornerTwo = cornerTwo;
+        setSize();
+    }
+   
+    public void setSize() {
+        double sideLength = Math.sqrt(Math.pow(cornerTwo.x - cornerOne.x, 2));
+        volume = sideLength * sideLength * sideLength;
+    }
+
+    public double getSize()
+    {
+        return volume;
     }
 
     @Override
     public String toString()
     {
-        return super.toString() + "\nShape Position: " + getPosition();
+        return super.toString() + "\nCube volume: " + getSize();
     }
 
-    public void setPosition(double x, double y, double z)
-    {
-        
+    @Override
+    public double getArea() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getArea'");
     }
-    public String getPosition()
-    {
-        return "a";
-    }
+
+    
+
+   
 
 }
