@@ -25,5 +25,10 @@ public class Sphere extends Circle{
     public double getVolume(){
         return ((4.0 / 3) * Math.PI * Math.pow(this.getRadius(), 3)); // Volume of a sphere
     }
+
+    @Override
+    public String toString(){
+        return super.toString()+"\nSphere Volume: " + getVolume();
+    }
 }
  
