@@ -2,9 +2,9 @@ public class Sphere extends Circle{
     private double volume;
     private double height;
 
-    public Sphere(String color, point center,int radius, String type, double height) 
+    public Sphere(String color, point[] corners,int radius, String type, double height) 
     {
-        super(color,center,radius,type);
+        super(color,corners,radius,type);
         setHeight(height);
     }
 

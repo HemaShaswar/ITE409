@@ -4,7 +4,7 @@ abstract class Shape
 {
     private int shapeId; //unique
     private String color;
-    private point centerPoint;
+    private point[] corners;
     private String type;
 
     public Shape(String color, String type){
@@ -13,19 +13,19 @@ abstract class Shape
         setType(type);
     }
 
-    public Shape(String color, point center, String type){
+    public Shape(String color, point[] corners, String type){
         initializeId();
         setColor(color);
-        setCenterPoint(center);
+        setCorners(corners);
         setType(type);
     }
 
-    private void setCenterPoint(point centerPoint){
-        this.centerPoint = centerPoint;
+    private void setCorners(point[] corners){
+        this.corners = corners;
     }
 
-    public point getCenterPoint(){
-        return this.centerPoint;
+    public point[] getCorners(){
+        return this.corners;
     }
 
     public int getId(){
