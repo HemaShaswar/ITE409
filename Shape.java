@@ -47,8 +47,9 @@ abstract class Shape {
 
     public abstract double getArea();
 
-    public void print() {
-        // check if share has volume aka sphere and cube 
-        System.out.println(this.toString()); 
+    @Override
+    public String toString()
+    {
+        return "Shape color: " + getColor() + "\nShape type: " + getType();
     }
 }
